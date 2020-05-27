@@ -1,0 +1,61 @@
+{
+  "name": "next-google-fonts",
+  "version": "0.0.1",
+  "description": "Load Google Fonts Asynchronously in Next.js",
+  "source": "src/index.tsx",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "microbundle --no-compress --jsx React.createElement --tsconfig tsconfig.json",
+    "commit": "git-cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joe-bell/next-google-fonts.git"
+  },
+  "keywords": [
+    "next.js",
+    "google fonts"
+  ],
+  "author": "Joe Bell <joe@joebell.co.uk>",
+  "license": "MIT",
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,md,yml}": "npx prettier --write"
+  },
+  "bugs": {
+    "url": "https://github.com/joe-bell/next-google-fonts/issues"
+  },
+  "homepage": "https://github.com/joe-bell/next-google-fonts#readme",
+  "peerDependencies": {
+    "next": ">= 9.3.6",
+    "react": ">= 16.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "14.0.5",
+    "@types/react": "16.9.35",
+    "commitizen": "4.0.3",
+    "cz-conventional-changelog": "3.1.0",
+    "next": "9.4.2",
+    "react": "16.13.1",
+    "husky": "4.2.5",
+    "lint-staged": "10.2.6",
+    "microbundle": "0.12.0",
+    "prettier": "2.0.5",
+    "typescript": "3.9.3"
+  }
+}
