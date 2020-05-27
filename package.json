@@ -11,7 +11,7 @@
     "README.md"
   ],
   "scripts": {
-    "build": "microbundle --no-compress --jsx React.createElement --tsconfig tsconfig.json",
+    "build": "microbundle --jsx React.createElement --tsconfig tsconfig.json",
     "commit": "git-cz"
   },
   "repository": {
