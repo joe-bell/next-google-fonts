@@ -26,7 +26,7 @@ jobs:
         with:
           node-version: "${{ steps.nvm.outputs.NVMRC }}"
       - run: npm ci
-      - run: npx prettier
+      - run: npx prettier . --check
       - run: npm run build
         env:
           CI: true
