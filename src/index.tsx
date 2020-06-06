@@ -1,7 +1,8 @@
 import * as React from "react";
 import Head from "next/head";
+import useSWR from "swr";
 
-type Href = {
+export type GoogleFontsProps = {
   /**
    * URL to your Google Fonts StyleSheet.
    *
@@ -10,30 +11,14 @@ type Href = {
   href: string;
 };
 
-type HasLoaded = boolean;
-
-export const GoogleFontsContext = React.createContext<
-  {
-    hasLoaded?: HasLoaded;
-  } & Href
->(undefined);
-
-export const GoogleFontsProvider: React.FC<Href> = ({ href, children }) => {
-  const [hasLoaded, setHasLoaded] = React.useState<HasLoaded>(false);
+const GoogleFonts: React.FC<GoogleFontsProps> = ({ href }) => {
+  const { data: hasLoaded, mutate: setHasLoaded } = useSWR("hasLoaded", {
+    initialData: false,
+  });
 
   React.useEffect(() => {
     setHasLoaded(true);
   }, []);
-
-  return (
-    <GoogleFontsContext.Provider value={{ hasLoaded: hasLoaded, href: href }}>
-      {children}
-    </GoogleFontsContext.Provider>
-  );
-};
-
-export const GoogleFonts: React.FC = () => {
-  const useGoogleFonts = React.useContext(GoogleFontsContext);
 
   return (
     <Head>
@@ -42,12 +27,10 @@ export const GoogleFonts: React.FC = () => {
         href="https://fonts.gstatic.com"
         crossOrigin="anonymous"
       />
-      <link rel="preload" as="style" href={useGoogleFonts.href} />
-      <link
-        href={useGoogleFonts.href}
-        rel="stylesheet"
-        media={!useGoogleFonts.hasLoaded ? "print" : "all"}
-      />
+      <link rel="preload" as="style" href={href} />
+      <link href={href} rel="stylesheet" media={!hasLoaded ? "print" : "all"} />
     </Head>
   );
 };
+
+export default GoogleFonts;
