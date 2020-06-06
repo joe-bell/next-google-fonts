@@ -10,25 +10,7 @@
    npm i next-google-fonts
    ```
 
-2. If you haven't already, [create a custom `_app.jsx` or `_app.tsx`](https://nextjs.org/docs/advanced-features/custom-app).
-3. Wrap the `Component` with the `GoogleFontsProvider` and pass your Google Fonts URL via the `href` attribute:
-
-   ```tsx
-   // pages/_app.tsx
-   import * as React from "react";
-   import { AppProps } from "next/app";
-   import { GoogleFontsProvider } from "next-google-fonts";
-
-   const App = ({ Component, pageProps }: AppProps) => (
-     <GoogleFontsProvider href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
-       <Component {...pageProps} />
-     </GoogleFontsProvider>
-   );
-
-   export default App;
-   ```
-
-4. Place `GoogleFonts` wherever it's required; whether it's a component, one-off page or a custom `Head` component.
+2. Place `GoogleFonts` wherever it's required—whether it's a component, one-off page or a custom `Head` component—and pass your Google Fonts URL via the `href` attribute:
 
    For a custom TypeScript `Head` component that may look something like this:
 
@@ -36,13 +18,13 @@
    // components/head.tsx
    import * as React from "react";
    import NextHead from "next/head";
-   import { GoogleFonts } from "next-google-fonts";
+   import GoogleFonts from "next-google-fonts";
 
    export const Head: React.FC<{
      title?: string;
    }> = ({ children, title }) => (
      <React.Fragment>
-       <GoogleFonts />
+       <GoogleFonts href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
        <NextHead>
          <meta charSet="UTF-8" />
          <meta
@@ -61,7 +43,7 @@
 
    > It's very important to remember that `GoogleFonts` is a small [`next/head`][next/head] component and should **not** be nested inside [`next/head`][next/head]. To solve this, wrap both components with a `Fragment`.
 
-5. Add the requested Google Font/s to your styles with a sensible fallback.  
+3. Add the requested Google Font/s to your styles with a sensible fallback.  
    It really doesn't matter whether you're using CSS or Sass or CSS-in-JS:
 
    ```css
@@ -70,8 +52,8 @@
    }
    ```
 
-6. [Run your Next.js app](https://nextjs.org/docs/api-reference/cli#build) to see the results in action!  
-   You should expect to see the fallback font first, followed by a switch to the Google Font/s without any render-blocking CSS warnings.  
+4. [Run your Next.js app](https://nextjs.org/docs/api-reference/cli#build) to see the results in action!  
+   You should expect to see the fallback font first, followed by a switch to the Google Font/s without any render-blocking CSS warnings. Your font will persist in the client-side cache thanks to [SWR](https://swr.now.sh/).  
    If JS is disabled, only the fallback font will display.
 
 ## Why?
