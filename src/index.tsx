@@ -1,6 +1,5 @@
 import * as React from "react";
 import Head from "next/head";
-import useSWR from "swr";
 
 export type GoogleFontsProps = {
   /**
@@ -11,13 +10,18 @@ export type GoogleFontsProps = {
   href: string;
 };
 
+let hydrated = false;
+
 const GoogleFonts: React.FC<GoogleFontsProps> = ({ href }) => {
-  const { data: hasLoaded, mutate: setHasLoaded } = useSWR("hasLoaded", {
-    initialData: false,
-  });
+  const hydratedRef = React.useRef(false);
+  const [, rerender] = React.useState(false);
 
   React.useEffect(() => {
-    setHasLoaded(true);
+    if (!hydratedRef.current) {
+      hydrated = true;
+      hydratedRef.current = true;
+      rerender(true);
+    }
   }, []);
 
   return (
@@ -28,7 +32,7 @@ const GoogleFonts: React.FC<GoogleFontsProps> = ({ href }) => {
         crossOrigin="anonymous"
       />
       <link rel="preload" as="style" href={href} />
-      <link href={href} rel="stylesheet" media={!hasLoaded ? "print" : "all"} />
+      <link href={href} rel="stylesheet" media={!hydrated ? "print" : "all"} />
     </Head>
   );
 };
