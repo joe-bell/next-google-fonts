@@ -53,7 +53,7 @@
    ```
 
 4. [Run your Next.js app](https://nextjs.org/docs/api-reference/cli#build) to see the results in action!  
-   You should expect to see the fallback font first, followed by a switch to the Google Font/s without any render-blocking CSS warnings. Your font will persist in the client-side cache thanks to [SWR](https://swr.now.sh/).  
+   You should expect to see the fallback font first, followed by a switch to the Google Font/s without any render-blocking CSS warnings. Your font/s will continue to display until your app is re-hydrated.  
    If JS is disabled, only the fallback font will display.
 
 ## Why?
