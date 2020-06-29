@@ -6,6 +6,7 @@
 ![Types Included](https://badgen.net/npm/types/next-google-fonts)
 ![Minizipped size](https://badgen.net/bundlephobia/minzip/next-google-fonts)
 ![License](https://badgen.net/github/license/joe-bell/next-google-fonts)
+![NPM Downloads](https://badgen.net/npm/dm/next-google-fonts)
 
 ## Setup
 
