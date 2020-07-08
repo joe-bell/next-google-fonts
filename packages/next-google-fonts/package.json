@@ -29,6 +29,6 @@
     "react": ">= 16.8.0"
   },
   "dependencies": {
-    "react-google-fonts": "1.0.0"
+    "react-google-fonts": "1.1.0"
   }
 }
