@@ -1,5 +1,4 @@
 import * as React from "react";
-import Head from "next/head";
 
 export type GoogleFontsProps = {
   /**
@@ -25,7 +24,7 @@ const GoogleFonts: React.FC<GoogleFontsProps> = ({ href }) => {
   }, []);
 
   return (
-    <Head>
+    <React.Fragment>
       <link
         rel="preconnect"
         href="https://fonts.gstatic.com"
@@ -33,7 +32,7 @@ const GoogleFonts: React.FC<GoogleFontsProps> = ({ href }) => {
       />
       <link rel="preload" as="style" href={href} />
       <link href={href} rel="stylesheet" media={!hydrated ? "print" : "all"} />
-    </Head>
+    </React.Fragment>
   );
 };
 

@@ -1,0 +1,30 @@
+{
+  "name": "react-google-fonts",
+  "version": "1.0.0",
+  "description": "Load Google Fonts Asynchronously in React.js",
+  "source": "src/index.tsx",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joe-bell/next-google-fonts.git"
+  },
+  "keywords": [
+    "react.js",
+    "google fonts"
+  ],
+  "author": "Joe Bell <joe@joebell.co.uk>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joe-bell/next-google-fonts/issues"
+  },
+  "homepage": "https://github.com/joe-bell/next-google-fonts#readme",
+  "peerDependencies": {
+    "react": ">= 16.8.0"
+  }
+}

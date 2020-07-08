@@ -25,8 +25,8 @@ jobs:
         uses: actions/setup-node@v2.1.0
         with:
           node-version: "${{ steps.nvm.outputs.NVMRC }}"
-      - run: npm ci
-      - run: npx prettier . --check
-      - run: npm run build
+      - run: yarn install --frozen-lockfile
+      - run: yarn prettier . --check
+      - run: yarn build
         env:
           CI: true
