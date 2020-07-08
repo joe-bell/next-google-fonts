@@ -1,6 +1,6 @@
 {
   "name": "react-google-fonts",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Load Google Fonts Asynchronously in React.js",
   "source": "src/index.tsx",
   "main": "dist/index.js",
