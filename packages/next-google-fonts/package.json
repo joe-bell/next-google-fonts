@@ -1,6 +1,6 @@
 {
   "name": "next-google-fonts",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Load Google Fonts Asynchronously in Next.js",
   "source": "src/index.tsx",
   "main": "dist/index.js",
@@ -29,6 +29,6 @@
     "react": ">= 16.8.0"
   },
   "dependencies": {
-    "react-google-fonts": "1.1.0"
+    "react-google-fonts": "1.2.0"
   }
 }
