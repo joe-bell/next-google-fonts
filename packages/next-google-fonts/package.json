@@ -27,8 +27,5 @@
   "peerDependencies": {
     "next": ">= 9.3.6",
     "react": ">= 16.8.0"
-  },
-  "dependencies": {
-    "react-google-fonts": "1.2.0"
   }
 }
