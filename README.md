@@ -8,7 +8,16 @@
 ![License](https://badgen.net/github/license/joe-bell/next-google-fonts)
 ![NPM Downloads](https://badgen.net/npm/dm/next-google-fonts)
 
+## Table of Contents
+
+1. [Setup](#setup)
+2. [FAQs](#faqs)
+
 ## Setup
+
+In this example, we're going to add [`Inter`](https://fonts.google.com/specimen/Inter) (specifically weights `400` and `700`) to a Next.js app.
+
+See [joebell.co.uk](https://joebell.co.uk) for a working example.
 
 1. Add the package to your Next.js project:
 
@@ -16,36 +25,40 @@
    npm i next-google-fonts
    ```
 
-2. Place `GoogleFonts` wherever it's required—whether it's a component, one-off page or a custom `Head` component—and pass your Google Fonts URL via the `href` attribute:
+2. If you haven't already, create a [custom `Document`](https://nextjs.org/docs/advanced-features/custom-document).
 
-   For a custom `Head` component that may look something like this:
+   Place `next-google-fonts` inside `next/document`'s `Head` component, and pass your Google Fonts URL via the `href` attribute:
 
    ```jsx
-   // components/head.jsx
-   import * as React from "react";
-   import NextHead from "next/head";
+   // pages/_document.js
+   import Document, { Html, Head, Main, NextScript } from "next/document";
    import GoogleFonts from "next-google-fonts";
 
-   export const Head = ({ children, title }) => (
-     <React.Fragment>
-       <GoogleFonts href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
-       <NextHead>
-         <meta charSet="UTF-8" />
-         <meta
-           name="viewport"
-           content="width=device-width, initial-scale=1.0"
-         />
-         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
+   class MyDocument extends Document {
+     static async getInitialProps(ctx) {
+       const initialProps = await Document.getInitialProps(ctx);
+       return { ...initialProps };
+     }
 
-         <title>{title}</title>
+     render() {
+       return (
+         <Html>
+           <Head>
+             <GoogleFonts href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
+           </Head>
+           <body>
+             <Main />
+             <NextScript />
+           </body>
+         </Html>
+       );
+     }
+   }
 
-         {children}
-       </NextHead>
-     </React.Fragment>
-   );
+   export default MyDocument;
    ```
 
-   > It's very important to remember that `GoogleFonts` is a small [`next/head`][next/head] component and should **not** be nested inside [`next/head`][next/head]. To solve this, wrap both components with a `Fragment`.
+   Alternatively, if you don't want Google Fonts on every page, you could roll your own [custom Head component](#how-do-i-use-next-google-fonts-in-a-custom-head-component).
 
 3. Add the requested Google Font/s to your styles with a sensible fallback.
    It really doesn't matter whether you're using CSS or Sass or CSS-in-JS:
@@ -56,11 +69,18 @@
    }
    ```
 
-4. [Run your Next.js app](https://nextjs.org/docs/api-reference/cli#build) to see the results in action!  
-   You should expect to see the fallback font first, followed by a switch to the Google Font/s without any render-blocking CSS warnings. Your font/s will continue to display until your app is re-hydrated.  
+4. [Run your Next.js app](https://nextjs.org/docs/api-reference/cli#build) to see the results in action!
+
+   You should expect to see the fallback font first, followed by a switch to the Google Font/s without any render-blocking CSS warnings. Your font/s will continue to display until your app is re-hydrated.
+
    If JS is disabled, only the fallback font will display.
 
-## Why?
+## FAQs
+
+- [Why?](#why)
+- [How do I use `next-google-fonts` in a custom `Head` component?](#how-do-i-use-next-google-fonts-in-a-custom-head-component)
+
+### Why?
 
 `next-google-fonts` aims to make the process of using Google Fonts in Next.js more consistent, faster and painless: it preconnects to font assets, preloads and asynchronously loads the CSS file.
 
@@ -77,5 +97,31 @@ In the current iteration of [`next/head`][next/head], we can't make use of the f
 ```
 
 If you'd like to track this issue in Next.js, you can follow it here: [Next.js#12984](https://github.com/zeit/next.js/issues/12984).
+
+### How do I use `next-google-fonts` in a custom `Head` component?
+
+It's important to acknowledge that `next-google-fonts` is a small [`next/head`][next/head] component and should **not** be nested inside [`next/head`][next/head]. To solve this, wrap both components with a `Fragment`.
+
+```jsx
+// components/head.js
+import * as React from "react";
+import NextHead from "next/head";
+import GoogleFonts from "next-google-fonts";
+
+export const Head = ({ children, title }) => (
+  <React.Fragment>
+    <GoogleFonts href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
+    <NextHead>
+      <meta charSet="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta httpEquiv="x-ua-compatible" content="ie=edge" />
+
+      <title>{title}</title>
+
+      {children}
+    </NextHead>
+  </React.Fragment>
+);
+```
 
 [next/head]: https://nextjs.org/docs/api-reference/next/head
