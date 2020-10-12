@@ -1,3 +1,5 @@
+> Using Next.js **v9.5.4** or higher? Previously `next-google-fonts` recommended creating a custom `Document`, but this strategy appears to be causing issues. Please follow the current `README`'s [setup strategy](#setup) instead.
+
 # next-google-fonts
 
 > A tiny [`next/head`][next/head] helper for loading Google Fonts **fast** and **asynchronously** ⏩
@@ -25,40 +27,34 @@ See [joebell.co.uk](https://joebell.co.uk) for a working example.
    npm i next-google-fonts
    ```
 
-2. If you haven't already, create a [custom `Document`](https://nextjs.org/docs/advanced-features/custom-document).
+2. Create a custom `Head` component.
 
-   Place `next-google-fonts` inside `next/document`'s `Head` component, and pass your Google Fonts URL via the `href` attribute:
+   It's important to acknowledge that `next-google-fonts` is a small [`next/head`][next/head] component and should **not** be nested inside [`next/head`][next/head]. To solve this, wrap both components with a `Fragment`.
 
    ```jsx
-   // pages/_document.js
-   import Document, { Html, Head, Main, NextScript } from "next/document";
+   // components/head.js
+   import * as React from "react";
+   import NextHead from "next/head";
    import GoogleFonts from "next-google-fonts";
 
-   class MyDocument extends Document {
-     static async getInitialProps(ctx) {
-       const initialProps = await Document.getInitialProps(ctx);
-       return { ...initialProps };
-     }
+   export const Head = ({ children, title }) => (
+     <React.Fragment>
+       <GoogleFonts href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
+       <NextHead>
+         <meta charSet="UTF-8" />
+         <meta
+           name="viewport"
+           content="width=device-width, initial-scale=1.0"
+         />
+         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
 
-     render() {
-       return (
-         <Html>
-           <Head>
-             <GoogleFonts href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
-           </Head>
-           <body>
-             <Main />
-             <NextScript />
-           </body>
-         </Html>
-       );
-     }
-   }
+         <title>{title}</title>
 
-   export default MyDocument;
+         {children}
+       </NextHead>
+     </React.Fragment>
+   );
    ```
-
-   Alternatively, if you don't want Google Fonts on every page, you could roll your own [custom Head component](#how-do-i-use-next-google-fonts-in-a-custom-head-component).
 
 3. Add the requested Google Font/s to your styles with a sensible fallback.
    It really doesn't matter whether you're using CSS or Sass or CSS-in-JS:
@@ -78,7 +74,6 @@ See [joebell.co.uk](https://joebell.co.uk) for a working example.
 ## FAQs
 
 - [Why?](#why)
-- [How do I use `next-google-fonts` in a custom `Head` component?](#how-do-i-use-next-google-fonts-in-a-custom-head-component)
 
 ### Why?
 
@@ -97,31 +92,5 @@ In the current iteration of [`next/head`][next/head], we can't make use of the f
 ```
 
 If you'd like to track this issue in Next.js, you can follow it here: [Next.js#12984](https://github.com/zeit/next.js/issues/12984).
-
-### How do I use `next-google-fonts` in a custom `Head` component?
-
-It's important to acknowledge that `next-google-fonts` is a small [`next/head`][next/head] component and should **not** be nested inside [`next/head`][next/head]. To solve this, wrap both components with a `Fragment`.
-
-```jsx
-// components/head.js
-import * as React from "react";
-import NextHead from "next/head";
-import GoogleFonts from "next-google-fonts";
-
-export const Head = ({ children, title }) => (
-  <React.Fragment>
-    <GoogleFonts href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
-    <NextHead>
-      <meta charSet="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-
-      <title>{title}</title>
-
-      {children}
-    </NextHead>
-  </React.Fragment>
-);
-```
 
 [next/head]: https://nextjs.org/docs/api-reference/next/head
