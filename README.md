@@ -1,14 +1,30 @@
-> Using Next.js **v9.5.4** or higher? Previously `next-google-fonts` recommended creating a custom `Document`, but this strategy appears to be causing issues. Please follow the current `README`'s [setup strategy](#setup) instead.
+<h1 align="center">next-google-fonts</h1>
 
-# next-google-fonts
+<p align="center">
+  A tiny <a href="https://nextjs.org/docs/api-reference/next/head"><code>next/head</code></a> helper for loading Google Fonts <strong>fast</strong> and <strong>asynchronously</strong> ⏩
+</p>
 
-> A tiny [`next/head`][next/head] helper for loading Google Fonts **fast** and **asynchronously** ⏩
+<p align="center">
+  <a href="https://www.npmjs.com/package/next-google-fonts">
+    <img alt="NPM Version" src="https://badgen.net/npm/v/next-google-fonts" />
+  </a>
+  <a href="https://badgen.net/npm/types/next-google-fonts">
+    <img alt="Types Included" src="https://badgen.net/npm/types/next-google-fonts" />
+  </a>
+  <a href="https://badgen.net/bundlephobia/minzip/next-google-fonts">
+    <img alt="Minizipped Size" src="https://badgen.net/bundlephobia/minzip/next-google-fonts" />
+  </a>
+  <a href="https://badgen.net/github/license/joe-bell/next-google-fonts">
+    <img alt="MIT License" src="https://badgen.net/github/license/joe-bell/next-google-fonts" />
+  </a>
+  <a href="https://www.npmjs.com/package/next-google-fonts">
+    <img alt="NPM Downloads" src="https://badgen.net/npm/dm/next-google-fonts" />
+  </a>
+</p>
 
-![NPM Version](https://badgen.net/npm/v/next-google-fonts)
-![Types Included](https://badgen.net/npm/types/next-google-fonts)
-![Minizipped size](https://badgen.net/bundlephobia/minzip/next-google-fonts)
-![License](https://badgen.net/github/license/joe-bell/next-google-fonts)
-![NPM Downloads](https://badgen.net/npm/dm/next-google-fonts)
+<br/>
+
+> Using Next.js 10? See ["How does this compare to Next.js font optimization?"](#how-does-this-compare-to-nextjs-font-optimization) before continuing.
 
 ## Table of Contents
 
@@ -73,7 +89,17 @@ See [joebell.co.uk](https://joebell.co.uk) for a working example.
 
 ## FAQs
 
+- [How does this compare to Next.js font optimization?](#how-does-this-compare-to-nextjs-font-optimization)
 - [Why?](#why)
+
+### How does this compare to Next.js font optimization?
+
+Next.js 10 introduced [automatic Google Font optimization](https://github.com/vercel/next.js/pull/14746), you can make a decision on which solution to use based on the following criteria:
+
+- "My fonts are **not priority** and can be loaded **asynchronously**" - use `next-google-fonts`.
+- "My fonts **are priority** and should **not** be loaded **asynchronously**" - use `Next.js` font optimization.
+
+For further reading, see the [Next.js issue discussion](https://github.com/vercel/next.js/issues/16065).
 
 ### Why?
 
