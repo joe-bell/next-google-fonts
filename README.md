@@ -20,6 +20,9 @@
   <a href="https://www.npmjs.com/package/next-google-fonts">
     <img alt="NPM Downloads" src="https://badgen.net/npm/dm/next-google-fonts" />
   </a>
+  <a href="https://twitter.com/joebell_">
+    <img alt="Follow @joebell_ on Twitter" src="https://img.shields.io/twitter/follow/joebell_.svg?style=social&label=Follow" />
+  </a>
 </p>
 
 <br/>
