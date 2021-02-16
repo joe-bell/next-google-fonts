@@ -8,13 +8,13 @@
   <a href="https://www.npmjs.com/package/next-google-fonts">
     <img alt="NPM Version" src="https://badgen.net/npm/v/next-google-fonts" />
   </a>
-  <a href="https://badgen.net/npm/types/next-google-fonts">
+  <a href="https://www.npmjs.com/package/next-google-fonts">
     <img alt="Types Included" src="https://badgen.net/npm/types/next-google-fonts" />
   </a>
-  <a href="https://badgen.net/bundlephobia/minzip/next-google-fonts">
+  <a href="https://bundlephobia.com/result?p=next-google-fonts">
     <img alt="Minizipped Size" src="https://badgen.net/bundlephobia/minzip/next-google-fonts" />
   </a>
-  <a href="https://badgen.net/github/license/joe-bell/next-google-fonts">
+  <a href="https://github.com/joe-bell/next-google-fonts/blob/main/LICENSE">
     <img alt="MIT License" src="https://badgen.net/github/license/joe-bell/next-google-fonts" />
   </a>
   <a href="https://www.npmjs.com/package/next-google-fonts">
