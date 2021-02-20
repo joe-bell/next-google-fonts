@@ -22,7 +22,7 @@
     "*.{js,jsx,ts,tsx,json,md,yml}": "prettier --write"
   },
   "devDependencies": {
-    "@types/node": "14.14.28",
+    "@types/node": "14.14.31",
     "@types/react": "17.0.2",
     "commitizen": "4.2.3",
     "cz-conventional-changelog": "3.3.0",
