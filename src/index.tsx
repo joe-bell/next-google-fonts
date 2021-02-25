@@ -37,4 +37,4 @@ const GoogleFonts: React.FC<GoogleFontsProps> = ({ href }) => {
   );
 };
 
-export default GoogleFonts;
+export { GoogleFonts as default, GoogleFonts };
