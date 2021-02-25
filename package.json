@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/joe-bell/next-google-fonts#readme",
   "scripts": {
-    "prepare": "yarn build",
+    "prepare": "npm run build",
     "build": "microbundle --jsx React.createElement --tsconfig tsconfig.json",
     "commit": "git-cz"
   },
