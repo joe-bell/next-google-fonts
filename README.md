@@ -54,7 +54,7 @@ See [joebell.co.uk](https://joebell.co.uk) for a working example.
    // components/head.js
    import * as React from "react";
    import NextHead from "next/head";
-   import GoogleFonts from "next-google-fonts";
+   import { GoogleFonts } from "next-google-fonts";
 
    export const Head = ({ children, title }) => (
      <React.Fragment>
