@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.0](https://github.com/joe-bell/next-google-fonts/compare/v1.3.0...v2.0.0) (2020-02-26)
+
+### Refactor
+
+- switches to named `GoogleFonts` export ([8fdb19d](https://github.com/joe-bell/next-google-fonts/commit/8fdb19d78b58b3eceba8a2c5973b30bb4583ddd4))
+
+### Features
+
+- upgrade peerDeps to latest `next` and `react` versions ([8fdb19d](https://github.com/joe-bell/next-google-fonts/commit/8fdb19d78b58b3eceba8a2c5973b30bb4583ddd4))
+
 ## [1.3.0](https://github.com/joe-bell/next-google-fonts/compare/v1.2.1...v1.3.0) (2020-02-25)
 
 ### Features
