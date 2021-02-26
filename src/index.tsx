@@ -1,18 +1,18 @@
 import * as React from "react";
 import Head from "next/head";
 
-export type GoogleFontsProps = {
+export interface IGoogleFontsProps {
   /**
    * URL to your Google Fonts StyleSheet.
    *
    * Be sure to end with `&display=swap` for best performance.
    */
   href: string;
-};
+}
 
 let hydrated = false;
 
-const GoogleFonts: React.FC<GoogleFontsProps> = ({ href }) => {
+export const GoogleFonts: React.FC<IGoogleFontsProps> = ({ href }) => {
   const hydratedRef = React.useRef(false);
   const [, rerender] = React.useState(false);
 
@@ -36,5 +36,3 @@ const GoogleFonts: React.FC<GoogleFontsProps> = ({ href }) => {
     </Head>
   );
 };
-
-export { GoogleFonts as default, GoogleFonts };
