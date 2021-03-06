@@ -54,9 +54,9 @@
     "husky": "4.3.8",
     "lint-staged": "10.5.4",
     "microbundle": "0.13.0",
-    "next": "10.0.7",
+    "next": "10.0.8",
     "prettier": "2.2.1",
     "react": "16.14.0",
-    "typescript": "4.2.2"
+    "typescript": "4.2.3"
   }
 }
