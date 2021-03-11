@@ -33,6 +33,9 @@ const GoogleFonts: React.FC<GoogleFontsProps> = ({ href }) => {
       />
       <link rel="preload" as="style" href={href} />
       <link href={href} rel="stylesheet" media={!hydrated ? "print" : "all"} />
+      <noscript>
+        <link href={href} rel="stylesheet" />
+      </noscript>
     </Head>
   );
 };
