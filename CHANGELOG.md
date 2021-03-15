@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.0](https://github.com/joe-bell/next-google-fonts/compare/v2.0.0...v2.1.0) (2020-03-15)
+
+### Features
+
+- add "no-js" fallback ([4f45eb2](https://github.com/joe-bell/next-google-fonts/commit/4f45eb2974f8829c56b9d7cd2a72f2989693bd42))
+  > In the unlikely event that a visitor has intentionally disabled JavaScript, fall back to the original method. The good news is that, although this is a render-blocking request, it can still make use of the preconnect which makes it marginally faster than the default.
+  >
+  > [Harry Roberts](https://csswizardry.com/2020/05/the-fastest-google-fonts/#google-fonts-async-snippet)
+
 ## [2.0.0](https://github.com/joe-bell/next-google-fonts/compare/v1.3.0...v2.0.0) (2020-02-26)
 
 ### Refactor
