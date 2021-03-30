@@ -30,24 +30,28 @@ export const GoogleFonts: React.FC<IGoogleFontsProps> = ({ href }) => {
         rel="preconnect"
         href="https://fonts.gstatic.com"
         crossOrigin="anonymous"
+        data-next-google-fonts="preconnect"
         key="next-google-fonts__preconnect"
       />
       <link
         rel="preload"
         as="style"
         href={href}
-        key="next__google-fonts__preload"
+        data-next-google-fonts="preload"
+        key="next-google-fonts__preload"
       />
       <link
         href={href}
         rel="stylesheet"
         media={!hydrated ? "print" : "all"}
+        data-next-google-fonts="style"
         key="next-google-fonts__style"
       />
       <noscript>
         <link
           href={href}
           rel="stylesheet"
+          data-next-google-fonts="style-no-js"
           key="next-google-fonts__style-no-js"
         />
       </noscript>
