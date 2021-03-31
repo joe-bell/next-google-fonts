@@ -29,11 +29,6 @@
 
 > Using Next.js 10? See ["How does this compare to Next.js font optimization?"](#how-does-this-compare-to-nextjs-font-optimization) before continuing.
 
-## Table of Contents
-
-1. [Setup](#setup)
-2. [FAQs](#faqs)
-
 ## Setup
 
 In this example, we're going to add [`Inter`](https://fonts.google.com/specimen/Inter) (specifically weights `400` and `700`) to a Next.js app.
