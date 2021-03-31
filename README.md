@@ -29,11 +29,6 @@
 
 > Using Next.js 10? See ["How does this compare to Next.js font optimization?"](#how-does-this-compare-to-nextjs-font-optimization) before continuing.
 
-## Table of Contents
-
-1. [Setup](#setup)
-2. [FAQs](#faqs)
-
 ## Setup
 
 In this example, we're going to add [`Inter`](https://fonts.google.com/specimen/Inter) (specifically weights `400` and `700`) to a Next.js app.
@@ -89,6 +84,16 @@ See [joebell.co.uk](https://joebell.co.uk) for a working example.
    You should expect to see the fallback font first, followed by a switch to the Google Font/s without any render-blocking CSS warnings. Your font/s will continue to display until your app is re-hydrated.
 
    If JS is disabled, only the fallback font will display.
+
+## Upcoming Changes
+
+You can opt-in to upcoming changes via the `future` prop.
+
+### `withoutHead`
+
+Currently, `next-google-fonts` sits inside Next.js' `<Head>` component; meaning it can't be nested inside a consumer's `<Head>`.
+
+This behavior will change in an upcoming release, and `GoogleFonts` will **need** to be placed inside `<Head>` on the consumer's side.
 
 ## FAQs
 

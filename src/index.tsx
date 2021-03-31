@@ -8,11 +8,23 @@ export interface IGoogleFontsProps {
    * Be sure to end with `&display=swap` for best performance.
    */
   href: string;
+  /**
+   * **UNSTABLE**
+   *
+   * Opt-in to upcoming changes ahead of the `v3` release.
+   */
+  future?: {
+    /**
+     * `GoogleFonts` no longer sits inside `<Head>`, you'll need to do this on
+     * your side instead.
+     */
+    withoutHead?: boolean;
+  };
 }
 
 let hydrated = false;
 
-export const GoogleFonts: React.FC<IGoogleFontsProps> = ({ href }) => {
+const GoogleFontsTags: React.FC<IGoogleFontsProps> = ({ href }) => {
   const hydratedRef = React.useRef(false);
   const [, rerender] = React.useState(false);
 
@@ -25,7 +37,7 @@ export const GoogleFonts: React.FC<IGoogleFontsProps> = ({ href }) => {
   }, []);
 
   return (
-    <Head>
+    <React.Fragment>
       <link
         rel="preconnect"
         href="https://fonts.gstatic.com"
@@ -55,6 +67,15 @@ export const GoogleFonts: React.FC<IGoogleFontsProps> = ({ href }) => {
           key="next-google-fonts__style-no-js"
         />
       </noscript>
-    </Head>
+    </React.Fragment>
   );
 };
+
+export const GoogleFonts: React.FC<IGoogleFontsProps> = (props) =>
+  props?.future?.withoutHead ? (
+    <GoogleFontsTags {...props} />
+  ) : (
+    <Head>
+      <GoogleFontsTags {...props} />
+    </Head>
+  );
