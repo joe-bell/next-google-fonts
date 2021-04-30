@@ -1,3 +1,25 @@
+<p align="center">
+  ⚠️
+</p>
+
+<p align="center">
+  <strong>THIS PROJECT HAS BEEN DEPRECATED</strong>
+</p>
+
+<p align="center">
+  As of Next.js 10.2, Google Fonts are <a href="https://nextjs.org/blog/next-10-2#automatic-webfont-optimization">automatically optimized</a> 🎉
+</p>
+
+<p align="center">
+  Thanks for all your love and support for this project,
+  <br />
+  <a href="https://joebell.co.uk/twitter">Joe</a>
+</p>
+
+---
+
+<br />
+
 <h1 align="center">next-google-fonts</h1>
 
 <p align="center">
@@ -28,6 +50,11 @@
 <br/>
 
 > Using Next.js 10? See ["How does this compare to Next.js font optimization?"](#how-does-this-compare-to-nextjs-font-optimization) before continuing.
+
+## Table of Contents
+
+1. [Setup](#setup)
+2. [FAQs](#faqs)
 
 ## Setup
 
